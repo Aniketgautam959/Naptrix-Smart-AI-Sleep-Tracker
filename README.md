@@ -1,4 +1,4 @@
-# 😴 Sleep Tracker
+# 😴 Naptrix - Smart AI Sleep Tracker
 
 A modern sleep tracking web application built with Next.js 15, featuring real-time analytics, personalized insights, and comprehensive sleep data visualization.
 
