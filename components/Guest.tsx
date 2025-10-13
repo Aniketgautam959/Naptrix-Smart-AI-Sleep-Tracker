@@ -35,7 +35,7 @@ const Guest = () => {
               {/* Stats */}
               <div className='grid grid-cols-3 gap-8 pt-8 border-t border-slate-200'>
                 <div className='text-center'>
-                  <div className='text-2xl font-bold text-slate-800'>10K+</div>
+                  <div className='text-2xl font-bold text-slate-800'>1K+</div>
                   <div className='text-sm text-slate-600'>Users</div>
                 </div>
                 <div className='text-center'>

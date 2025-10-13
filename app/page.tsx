@@ -1,4 +1,5 @@
 import AddNewRecord from '@/components/AddNewRecord';
+import AdvancedAnalytics from '@/components/AdvancedAnalytics';
 import AIInsights from '@/components/AIInsights';
 import AverageSleep from '@/components/AverageSleep';
 import BestWorstSleep from '@/components/BestWorstSleep';
@@ -98,6 +99,11 @@ export default async function HomePage() {
               <AIInsights />
             </div>
           </div>
+        </div>
+
+        {/* Advanced Analytics */}
+        <div className='mt-12'>
+          <AdvancedAnalytics />
         </div>
 
         {/* Sleep History */}
