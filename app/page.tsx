@@ -9,6 +9,9 @@ import RecordHistory from '@/components/RecordHistory';
 import { currentUser } from '@clerk/nextjs/server';
 import Image from 'next/image';
 
+// Force dynamic rendering since we use currentUser()
+export const dynamic = 'force-dynamic';
+
 export default async function HomePage() {
   let user = null;
   
