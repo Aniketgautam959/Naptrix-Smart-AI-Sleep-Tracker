@@ -32,10 +32,10 @@ export async function getAIInsights(): Promise<{
     }));
 
     // Calculate some basic statistics
-    const totalHours = sleepData.reduce((sum, record) => sum + record.amount, 0);
+    const totalHours = sleepData.reduce((sum, record) => sum + record.hours, 0);
     const averageHours = totalHours / sleepData.length;
-    const minHours = Math.min(...sleepData.map(r => r.amount));
-    const maxHours = Math.max(...sleepData.map(r => r.amount));
+    const minHours = Math.min(...sleepData.map(r => r.hours));
+    const maxHours = Math.max(...sleepData.map(r => r.hours));
 
     const prompt = `
     Analyze the following sleep data and provide personalized insights and recommendations for better sleep:
