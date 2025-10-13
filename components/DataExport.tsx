@@ -63,7 +63,7 @@ const DataExport = ({ records }: DataExportProps) => {
       const bestSleep = Math.max(...records.map(r => r.amount));
       const worstSleep = Math.min(...records.map(r => r.amount));
 
-      let htmlContent = `
+      const htmlContent = `
         <!DOCTYPE html>
         <html>
         <head>

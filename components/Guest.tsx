@@ -1,4 +1,5 @@
 import { SignInButton } from '@clerk/nextjs';
+import Image from 'next/image';
 
 const Guest = () => {
   return (
@@ -52,9 +53,11 @@ const Guest = () => {
             {/* Right Column */}
             <div className='relative animate-slide-up'>
               <div className='relative'>
-                <img
-                  src='sleep-tracker.png'
+                <Image
+                  src='/sleep-tracker.png'
                   alt='Naptrix Dashboard Preview'
+                  width={600}
+                  height={400}
                   className='w-full max-w-lg mx-auto rounded-2xl shadow-lg border border-border'
                 />
                 {/* Floating elements */}
@@ -152,8 +155,8 @@ const Guest = () => {
                 </div>
               </div>
               <p className='text-slate-800 mb-6 italic'>
-                "Naptrix has completely transformed my sleep schedule. I feel more energized every day! 
-                The insights are incredibly detailed and helpful."
+                &ldquo;Naptrix has completely transformed my sleep schedule. I feel more energized every day! 
+                The insights are incredibly detailed and helpful.&rdquo;
               </p>
               <div className='flex items-center'>
                 <div className='w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-white font-semibold mr-3'>
@@ -177,8 +180,8 @@ const Guest = () => {
                 </div>
               </div>
               <p className='text-slate-800 mb-6 italic'>
-                "The insights from Naptrix have helped me identify and fix my sleep issues. 
-                Highly recommend it to anyone serious about improving their sleep quality."
+                &ldquo;The insights from Naptrix have helped me identify and fix my sleep issues. 
+                Highly recommend it to anyone serious about improving their sleep quality.&rdquo;
               </p>
               <div className='flex items-center'>
                 <div className='w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-white font-semibold mr-3'>
@@ -202,8 +205,8 @@ const Guest = () => {
                 </div>
               </div>
               <p className='text-slate-800 mb-6 italic'>
-                "Naptrix is so easy to use and provides accurate data. It's a must-have for anyone 
-                looking to improve their sleep and overall well-being."
+                &ldquo;Naptrix is so easy to use and provides accurate data. It&apos;s a must-have for anyone 
+                looking to improve their sleep and overall well-being.&rdquo;
               </p>
               <div className='flex items-center'>
                 <div className='w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-white font-semibold mr-3'>

@@ -7,6 +7,7 @@ import Guest from '@/components/Guest';
 import RecordChart from '@/components/RecordChart';
 import RecordHistory from '@/components/RecordHistory';
 import { currentUser } from '@clerk/nextjs/server';
+import Image from 'next/image';
 
 export default async function HomePage() {
   const user = await currentUser();
@@ -29,9 +30,11 @@ export default async function HomePage() {
               {/* User Image */}
               <div className='relative group'>
                 <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-300'></div>
-                <img
+                <Image
                   src={user.imageUrl}
                   alt={`${user.firstName}'s profile`}
+                  width={96}
+                  height={96}
                   className='relative w-24 h-24 rounded-full border-4 border-white/50 dark:border-slate-700 shadow-xl hover:scale-105 transition-transform duration-300'
                 />
                 <div className='absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full border-4 border-white dark:border-slate-800 shadow-lg flex items-center justify-center'>

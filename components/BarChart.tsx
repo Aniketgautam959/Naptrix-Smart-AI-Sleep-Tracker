@@ -112,10 +112,10 @@ const BarChart = ({ records }: { records: Record[] }) => {
         },
         padding: 12,
         callbacks: {
-          title: function(context: any) {
+          title: function(context: { [key: string]: any }) {
             return `Sleep Record - ${context[0].label}`;
           },
-          label: function(context: any) {
+          label: function(context: { parsed: { y: number } }) {
             const hours = context.parsed.y;
             let quality = '';
             if (hours < 6) quality = 'Poor';

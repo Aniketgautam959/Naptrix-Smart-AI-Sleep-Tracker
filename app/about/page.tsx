@@ -11,7 +11,7 @@ const AboutPage = () => {
           </h1>
           <p className='text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
             Your ultimate companion for tracking sleep and improving your health. 
-            We're revolutionizing sleep wellness through technology.
+            We&apos;re revolutionizing sleep wellness through technology.
           </p>
         </div>
       </section>
@@ -26,7 +26,7 @@ const AboutPage = () => {
             <p className='text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed'>
               At Naptrix, we aim to help individuals achieve better sleep and
               overall well-being by providing insights into their sleep patterns.
-              Better sleep leads to a healthier, happier life, and we're here to
+              Better sleep leads to a healthier, happier life, and we&apos;re here to
               guide you every step of the way.
             </p>
           </div>
@@ -135,7 +135,7 @@ const AboutPage = () => {
               Naptrix was created to address the growing need for better sleep
               management tools. Our team of sleep experts and technologists
               developed a platform that combines cutting-edge technology with
-              actionable insights. Since our launch, we've helped countless users
+              actionable insights. Since our launch, we&apos;ve helped countless users
               achieve better sleep and improve their overall health.
             </p>
           </div>

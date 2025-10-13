@@ -21,7 +21,7 @@ const AdvancedAnalytics = () => {
         } else {
           setRecords(fetchedRecords || []);
         }
-      } catch (err) {
+      } catch {
         setError('Failed to load sleep records');
       } finally {
         setLoading(false);

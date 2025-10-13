@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Tech Stack - Naptrix',
@@ -260,12 +261,12 @@ const TechStackPage = () => {
               </svg>
               <span>View on GitHub</span>
             </a>
-            <a
+            <Link
               href='/'
               className='border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300'
             >
               Back to Home
-            </a>
+            </Link>
           </div>
         </div>
       </section>

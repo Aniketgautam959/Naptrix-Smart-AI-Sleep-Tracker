@@ -22,7 +22,7 @@ export default function AIInsights({ className = '' }: AIInsightsProps) {
       } else {
         setInsights(result.insights || '');
       }
-    } catch (err) {
+    } catch {
       setError('Failed to load insights');
     } finally {
       setLoading(false);
