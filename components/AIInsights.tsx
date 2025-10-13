@@ -136,11 +136,23 @@ export default function AIInsights({ className = '' }: AIInsightsProps) {
           {insights && !loading && (
             <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-4 rounded-xl border border-blue-200 flex-1 flex flex-col">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-2xl">🧠</span>
-                <span className="text-sm font-semibold text-slate-700">AI Analysis</span>
+                <span className="text-2xl">💡</span>
+                <span className="text-sm font-semibold text-slate-700">Sleep Recommendations</span>
               </div>
-              <div className="whitespace-pre-wrap text-slate-700 leading-relaxed text-sm overflow-y-auto flex-1">
-                {insights}
+              <div className="whitespace-pre-wrap text-slate-700 leading-relaxed text-sm overflow-y-auto flex-1 space-y-2">
+                {insights.split('\n').map((line, index) => {
+                  if (line.trim() === '') return null;
+                  return (
+                    <div key={index} className="flex items-start gap-2">
+                      <span className="text-blue-600 font-semibold text-xs mt-1 flex-shrink-0">
+                        {line.match(/^\d+\./)?.[0] || '•'}
+                      </span>
+                      <span className="text-slate-700 text-sm leading-relaxed">
+                        {line.replace(/^\d+\.\s*/, '')}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

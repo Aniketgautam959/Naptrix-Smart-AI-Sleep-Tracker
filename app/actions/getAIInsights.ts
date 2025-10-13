@@ -50,13 +50,16 @@ export async function getAIInsights(): Promise<{
     - Range: ${minHours} - ${maxHours} hours
     - Total entries: ${sleepData.length}
 
-    Please provide:
-    1. A brief analysis of the sleep patterns
-    2. 3-5 specific, actionable recommendations for better sleep
-    3. Any concerning patterns you notice
-    4. Tips for improving sleep quality
+    Please provide EXACTLY 4-5 concise, actionable recommendations for better sleep. Format as a numbered list. Keep each point brief (1-2 sentences max). Focus on practical, specific advice that can be implemented immediately.
 
-    Keep the response concise but helpful, focusing on practical advice.
+    Example format:
+    1. [Specific recommendation]
+    2. [Specific recommendation]
+    3. [Specific recommendation]
+    4. [Specific recommendation]
+    5. [Specific recommendation]
+
+    Do not include analysis or explanations, just the recommendations.
     `;
 
     const result = await model.generateContent(prompt);

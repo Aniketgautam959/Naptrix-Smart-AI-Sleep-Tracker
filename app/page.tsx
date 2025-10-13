@@ -14,8 +14,8 @@ export default async function HomePage() {
     return <Guest />;
   }
   return (
-    <main className='min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
+    <main className='bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50'>
+      <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8'>
         {/* Welcome Section */}
         <div className='mb-12'>
           <div className='relative overflow-hidden bg-white backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 group'>
@@ -76,17 +76,17 @@ export default async function HomePage() {
 
         {/* Main Content Grid */}
         <div className='space-y-10'>
-          {/* Top Row - Chart and Add Record */}
-          <div className='grid grid-cols-1 lg:grid-cols-4 gap-8'>
-            <div className='lg:col-span-3 transform hover:scale-[1.02] transition-all duration-300'>
-              <RecordChart />
-            </div>
-            <div className='lg:col-span-1 transform hover:scale-[1.02] transition-all duration-300'>
-              <AddNewRecord />
-            </div>
+          {/* Chart Section */}
+          <div className='transform hover:scale-[1.02] transition-all duration-300'>
+            <RecordChart />
           </div>
 
-          {/* Middle Row - Statistics and AI Insights */}
+          {/* Add Record Section */}
+          <div className='transform hover:scale-[1.02] transition-all duration-300'>
+            <AddNewRecord />
+          </div>
+
+          {/* Statistics and AI Insights Row */}
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             <div className='transform hover:scale-[1.02] transition-all duration-300'>
               <AverageSleep />
