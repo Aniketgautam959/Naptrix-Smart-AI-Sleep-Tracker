@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@clerk/nextjs": "6.1",
+    "@google/generative-ai": "^0.24.1",
     "@prisma/client": "^6.8.2",
+    "autoprefixer": "^10.4.21",
     "chart.js": "^4.4.9",
+    "dotenv": "^17.2.3",
     "next": "15.1.8",
     "react": "^19.0.0",
     "react-chartjs-2": "^5.3.0",
@@ -25,7 +28,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.8",
     "postcss": "^8",
-    "prisma": "^6.8.2",
+    "prisma": "^6.17.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

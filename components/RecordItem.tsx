@@ -14,20 +14,24 @@ const RecordItem = ({ record }: { record: Record }) => {
 
   return (
     <li
-      className={`flex justify-between items-center bg-white p-4 rounded-lg shadow-md mb-4 border-t border-t-gray-100 ${
+      className={`flex justify-between items-center bg-background p-4 rounded-lg shadow-sm mb-4 border border-border ${
         record?.amount < 7
           ? 'border-l-4 border-red-500'
           : 'border-l-4 border-green-500'
       }`}
     >
       <div className='flex flex-col'>
-        <span className='text-sm text-gray-500'>
-          {new Date(record?.date).toLocaleDateString()}
+        <span className='text-sm text-muted-foreground'>
+          {new Date(record?.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+          })}
         </span>
-        <span className='text-lg font-bold text-gray-800'>
+        <span className='text-lg font-bold text-foreground'>
           {record?.amount} hours
         </span>
-        <span className='text-sm text-gray-600'>
+        <span className='text-sm text-muted-foreground'>
           Sleep Mode: {record?.text}
         </span>
       </div>

@@ -28,34 +28,103 @@ interface Record {
 }
 
 const BarChart = ({ records }: { records: Record[] }) => {
+  if (!records || records.length === 0) {
+    return (
+      <div className="flex items-center justify-center h-80 text-slate-500">
+        <div className="text-center">
+          <div className="text-4xl mb-2">📊</div>
+          <p>No data to display</p>
+        </div>
+      </div>
+    );
+  }
+  
   // Prepare data for the chart
   const data = {
-    labels: records.map((record) => new Date(record.date).toLocaleDateString()), // Use record dates as labels
+    labels: records.map((record) => new Date(record.date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    })), // Use record dates as labels
     datasets: [
       {
         data: records.map((record) => record.amount), // Use record amounts as data
-        backgroundColor: records.map((record) =>
-          record.amount < 7
-            ? 'rgba(255, 99, 132, 0.2)'
-            : 'rgba(75, 192, 192, 0.2)'
-        ), // Red for < 7, Green for >= 7
-        borderColor: records.map((record) =>
-          record.amount < 7 ? 'rgba(255, 99, 132, 1)' : 'rgba(75, 192, 192, 1)'
-        ), // Red for < 7, Green for >= 7
-        borderWidth: 1,
-        borderRadius: 2, // Rounded bar edges
+        backgroundColor: records.map((record) => {
+          if (record.amount < 6) return 'rgba(239, 68, 68, 0.3)'; // Red for poor sleep
+          if (record.amount < 7) return 'rgba(245, 158, 11, 0.3)'; // Orange for fair sleep
+          if (record.amount < 8) return 'rgba(34, 197, 94, 0.3)'; // Green for good sleep
+          return 'rgba(59, 130, 246, 0.3)'; // Blue for excellent sleep
+        }),
+        borderColor: records.map((record) => {
+          if (record.amount < 6) return 'rgba(239, 68, 68, 1)';
+          if (record.amount < 7) return 'rgba(245, 158, 11, 1)';
+          if (record.amount < 8) return 'rgba(34, 197, 94, 1)';
+          return 'rgba(59, 130, 246, 1)';
+        }),
+        borderWidth: 2,
+        borderRadius: 8, // More rounded bar edges
+        borderSkipped: false,
+        hoverBackgroundColor: records.map((record) => {
+          if (record.amount < 6) return 'rgba(239, 68, 68, 0.5)';
+          if (record.amount < 7) return 'rgba(245, 158, 11, 0.5)';
+          if (record.amount < 8) return 'rgba(34, 197, 94, 0.5)';
+          return 'rgba(59, 130, 246, 0.5)';
+        }),
+        hoverBorderColor: records.map((record) => {
+          if (record.amount < 6) return 'rgba(239, 68, 68, 1)';
+          if (record.amount < 7) return 'rgba(245, 158, 11, 1)';
+          if (record.amount < 8) return 'rgba(34, 197, 94, 1)';
+          return 'rgba(59, 130, 246, 1)';
+        }),
+        hoverBorderWidth: 3,
       },
     ],
   };
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      duration: 2000,
+      easing: 'easeInOutQuart' as const,
+    },
     plugins: {
       legend: {
         display: false, // Remove legend
       },
       title: {
         display: false, // Remove chart title
+      },
+      tooltip: {
+        backgroundColor: 'rgba(15, 23, 42, 0.95)',
+        titleColor: '#ffffff',
+        bodyColor: '#ffffff',
+        borderColor: 'rgba(59, 130, 246, 0.3)',
+        borderWidth: 1,
+        cornerRadius: 12,
+        displayColors: false,
+        titleFont: {
+          size: 14,
+          weight: '600' as const,
+        },
+        bodyFont: {
+          size: 13,
+        },
+        padding: 12,
+        callbacks: {
+          title: function(context: any) {
+            return `Sleep Record - ${context[0].label}`;
+          },
+          label: function(context: any) {
+            const hours = context.parsed.y;
+            let quality = '';
+            if (hours < 6) quality = 'Poor';
+            else if (hours < 7) quality = 'Fair';
+            else if (hours < 8) quality = 'Good';
+            else quality = 'Excellent';
+            return `${hours} hours (${quality})`;
+          },
+        },
       },
     },
     scales: {
@@ -65,18 +134,23 @@ const BarChart = ({ records }: { records: Record[] }) => {
           text: 'Date',
           font: {
             size: 14,
-            weight: 'bold' as const,
+            weight: '600' as const,
           },
-          color: '#2c3e50',
+          color: '#475569',
         },
         ticks: {
           font: {
-            size: 12, // Adjust x-axis font size
+            size: 12,
+            weight: '500' as const,
           },
-          color: '#7f8c8d', // Gray x-axis labels
+          color: '#64748b',
+          maxRotation: 45,
         },
         grid: {
           display: false, // Hide x-axis grid lines
+        },
+        border: {
+          display: false,
         },
       },
       y: {
@@ -84,24 +158,34 @@ const BarChart = ({ records }: { records: Record[] }) => {
           display: true,
           text: 'Hours Slept',
           font: {
-            size: 16,
-            weight: 'bold' as const,
+            size: 14,
+            weight: '600' as const,
           },
-          color: '#2c3e50',
+          color: '#475569',
         },
         ticks: {
           font: {
-            size: 12, // Adjust y-axis font size
+            size: 12,
+            weight: '500' as const,
           },
-          color: '#7f8c8d', // Gray y-axis labels
+          color: '#64748b',
+          stepSize: 1,
         },
         grid: {
-          color: '#e0e0e0', // Light gray y-axis grid lines
+          color: 'rgba(148, 163, 184, 0.1)',
+          lineWidth: 1,
         },
-        suggestedMin: 4, // Start y-axis at 4
-        suggestedMax: 10, // Extend y-axis to a larger value
-        beginAtZero: false, // Ensure y-axis starts at zero
+        border: {
+          display: false,
+        },
+        suggestedMin: 0,
+        suggestedMax: 12,
+        beginAtZero: true,
       },
+    },
+    interaction: {
+      intersect: false,
+      mode: 'index' as const,
     },
   };
 

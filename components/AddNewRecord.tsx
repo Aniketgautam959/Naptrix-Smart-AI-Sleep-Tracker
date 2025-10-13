@@ -34,81 +34,89 @@ const AddRecord = () => {
   };
 
   return (
-    <div className='bg-gray-100 flex items-center justify-center'>
-      <div className='bg-white shadow-lg rounded-lg p-8 w-full'>
-        <h3 className='text-2xl font-bold text-center mb-6 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent'>
-          Track Your Sleep
-        </h3>
-        <form
-          ref={formRef}
-          onSubmit={(e) => {
-            e.preventDefault();
-            const formData = new FormData(formRef.current!);
-            clientAction(formData);
-          }}
-          className='space-y-6'
-        >
-          {/* Sleep Quality and Sleep Date */}
-          <div className='flex flex-col md:flex-row md:space-x-4'>
-            {/* Sleep Quality */}
-            <div className='flex-1'>
-              <label
-                htmlFor='text'
-                className='block text-sm font-medium text-gray-700 mb-2'
-              >
-                Sleep Quality
-              </label>
-              <select
-                id='text'
-                name='text'
-                value={sleepQuality}
-                onChange={(e) => setSleepQuality(e.target.value)}
-                className='block w-full border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 px-4 py-2'
-                required
-              >
-                <option value='' disabled>
-                  Sleep quality...
-                </option>
-                <option value='Refreshed'>🌞 Refreshed</option>
-                <option value='Tired'>😴 Tired</option>
-                <option value='Neutral'>😐 Neutral</option>
-                <option value='Exhausted'>😫 Exhausted</option>
-                <option value='Energetic'>⚡ Energetic</option>
-              </select>
-            </div>
-
-            {/* Sleep Date */}
-            <div className='flex-1'>
-              <label
-                htmlFor='date'
-                className='block text-sm font-medium text-gray-700 mb-2'
-              >
-                Sleep Date
-              </label>
-              <input
-                type='date'
-                name='date'
-                id='date'
-                className='block w-full border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 px-4 py-2'
-                placeholder='Select a date'
-                required
-                onFocus={(e) => e.target.showPicker()} // Open the calendar on focus
-              />
-            </div>
+    <div className='relative overflow-hidden bg-white backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 group'>
+      {/* Background decoration */}
+      <div className='absolute inset-0 bg-gradient-to-br from-green-50/50 via-blue-50/30 to-purple-50/50'></div>
+      <div className='absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-green-100/40 to-blue-100/40 rounded-full blur-2xl transform translate-x-6 -translate-y-6'></div>
+      
+      <div className='relative'>
+        <div className='text-center mb-8'>
+          <h3 className='text-3xl font-bold text-slate-800 mb-2'>
+            Track Your Sleep
+          </h3>
+          <p className='text-slate-600'>
+            Log your sleep data and insights
+          </p>
+        </div>
+      <form
+        ref={formRef}
+        onSubmit={(e) => {
+          e.preventDefault();
+          const formData = new FormData(formRef.current!);
+          clientAction(formData);
+        }}
+        className='space-y-6'
+      >
+        {/* Sleep Quality and Sleep Date */}
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+          {/* Sleep Quality */}
+          <div className='space-y-2'>
+            <label
+              htmlFor='text'
+              className='text-sm font-semibold text-slate-700 block'
+            >
+              Sleep Quality
+            </label>
+            <select
+              id='text'
+              name='text'
+              value={sleepQuality}
+              onChange={(e) => setSleepQuality(e.target.value)}
+              className='w-full h-12 px-4 bg-white border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
+              required
+            >
+              <option value='' disabled>
+                Select quality...
+              </option>
+              <option value='Refreshed'>🌞 Refreshed</option>
+              <option value='Tired'>😴 Tired</option>
+              <option value='Neutral'>😐 Neutral</option>
+              <option value='Exhausted'>😫 Exhausted</option>
+              <option value='Energetic'>⚡ Energetic</option>
+            </select>
           </div>
 
-          {/* Hours Slept */}
-          <div>
+          {/* Sleep Date */}
+          <div className='space-y-2'>
             <label
-              htmlFor='amount'
-              className='block text-sm font-medium text-gray-700 mb-2'
+              htmlFor='date'
+              className='text-sm font-semibold text-slate-700 block'
             >
-              Hours Slept
-              <br />
-              <span className='text-xs text-gray-500'>
-                (Select between 0 and 12 in steps of 0.5)
-              </span>
+              Sleep Date
             </label>
+            <input
+              type='date'
+              name='date'
+              id='date'
+              className='w-full h-12 px-4 bg-white border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
+              required
+              onFocus={(e) => e.target.showPicker()}
+            />
+          </div>
+        </div>
+
+        {/* Hours Slept */}
+        <div className='space-y-4'>
+          <label
+            htmlFor='amount'
+            className='text-sm font-semibold text-slate-700 block'
+          >
+            Hours Slept
+            <span className='text-xs text-slate-500 ml-2 font-normal'>
+              (0-12 hours in 0.5 increments)
+            </span>
+          </label>
+          <div className='relative'>
             <input
               type='range'
               name='amount'
@@ -118,20 +126,32 @@ const AddRecord = () => {
               step='0.5'
               value={amount}
               onChange={(e) => setAmount(parseFloat(e.target.value))}
-              className='w-full cursor-pointer'
+              className='w-full h-3 bg-gradient-to-r from-red-200 via-yellow-200 via-green-200 to-blue-200 rounded-lg appearance-none cursor-pointer slider'
             />
-            <div className='text-center text-gray-700 mt-2'>{amount} hours</div>
+            <div className='flex justify-between text-xs text-slate-500 mt-2'>
+              <span>0h</span>
+              <span>6h</span>
+              <span>12h</span>
+            </div>
           </div>
+          <div className='text-center'>
+            <div className='inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-semibold text-lg'>
+              <span className='text-2xl'>😴</span>
+              <span>{amount} hours</span>
+            </div>
+          </div>
+        </div>
 
-          {/* Submit Button */}
-          <button
-            type='submit'
-            className='w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white px-4 py-2 rounded-md font-medium shadow-md transition flex items-center justify-center cursor-pointer'
-            disabled={isLoading} // Disable button while loading
-          >
-            {isLoading ? (
+        {/* Submit Button */}
+        <button
+          type='submit'
+          className='w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2'
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <>
               <svg
-                className='animate-spin h-5 w-5 text-white'
+                className='animate-spin h-5 w-5'
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
                 viewBox='0 0 24 24'
@@ -150,24 +170,34 @@ const AddRecord = () => {
                   d='M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z'
                 ></path>
               </svg>
-            ) : (
-              'Add Sleep Record'
-            )}
-          </button>
-        </form>
+              <span>Adding...</span>
+            </>
+          ) : (
+            <>
+              <span>Add Sleep Record</span>
+              <span className='text-xl'>✨</span>
+            </>
+          )}
+        </button>
+      </form>
 
-        {/* Alert Message */}
-        {alertMessage && (
-          <div
-            className={`mt-4 p-3 rounded-md text-sm ${
-              alertType === 'success'
-                ? 'bg-green-100 text-green-800 border border-green-300'
-                : 'bg-red-100 text-red-800 border border-red-300'
-            }`}
-          >
+      {/* Alert Message */}
+      {alertMessage && (
+        <div
+          className={`mt-6 p-4 rounded-xl text-sm font-medium ${
+            alertType === 'success'
+              ? 'bg-gradient-to-r from-green-50 to-emerald-50 text-green-800 border border-green-200 dark:from-green-900/20 dark:to-emerald-900/20 dark:text-green-300 dark:border-green-700'
+              : 'bg-gradient-to-r from-red-50 to-pink-50 text-red-800 border border-red-200 dark:from-red-900/20 dark:to-pink-900/20 dark:text-red-300 dark:border-red-700'
+          }`}
+        >
+          <div className='flex items-center gap-2'>
+            <span className='text-lg'>
+              {alertType === 'success' ? '✅' : '❌'}
+            </span>
             {alertMessage}
           </div>
-        )}
+        </div>
+      )}
       </div>
     </div>
   );

@@ -15,23 +15,21 @@ const RecordHistory = async () => {
 
   if (!records || records.length === 0) {
     return (
-      <div className='bg-gray-100 flex items-center justify-center pb-6'>
-        <div className='bg-white shadow-lg rounded-lg p-8 w-full text-center'>
-          <h3 className='text-2xl font-bold mb-4 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent'>
-            No Sleep Records Found
-          </h3>
-          <p className='text-gray-600'>
-            Start tracking your sleep to see your history here.
-          </p>
-        </div>
+      <div className='card p-8 text-center'>
+        <h3 className='text-2xl font-bold mb-4 text-foreground'>
+          No Sleep Records Found
+        </h3>
+        <p className='text-muted-foreground'>
+          Start tracking your sleep to see your history here.
+        </p>
       </div>
     );
   }
 
   return (
-    <div className='bg-gray-100 p-6 '>
-      <div className='bg-white shadow-lg rounded-lg p-8 mx-auto'>
-        <h3 className='text-2xl font-bold text-center mb-6 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent border-b border-gray-200 pb-6'>
+    <div className='p-6'>
+      <div className='card p-8 mx-auto'>
+        <h3 className='text-2xl font-bold text-center mb-6 text-foreground border-b border-border pb-6'>
           Sleep History
         </h3>
         <ul className='space-y-4'>
