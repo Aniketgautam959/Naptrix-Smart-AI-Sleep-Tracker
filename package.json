@@ -21,7 +21,7 @@
     "@google/generative-ai": "^0.24.1",
     "@prisma/client": "^6.8.2",
     "autoprefixer": "^10.4.21",
-    "chart.js": "^4.4.9",
+    "chart.js": "^4.5.1",
     "dotenv": "^17.2.3",
     "next": "15.1.8",
     "react": "^19.0.0",
