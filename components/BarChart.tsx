@@ -21,11 +21,8 @@ ChartJS.register(
   Legend
 );
 
-// Define the type for a record
-interface Record {
-  date: string; // ISO date string
-  amount: number; // Hours slept
-}
+// Import the Record type from the types directory
+import { Record } from '@/types/Record';
 
 const BarChart = ({ records }: { records: Record[] }) => {
   if (!records || records.length === 0) {
@@ -41,11 +38,14 @@ const BarChart = ({ records }: { records: Record[] }) => {
   
   // Prepare data for the chart
   const data = {
-    labels: records.map((record) => new Date(record.date).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    })), // Use record dates as labels
+    labels: records.map((record) => {
+      const date = typeof record.date === 'string' ? new Date(record.date) : new Date(record.date);
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      });
+    }), // Use record dates as labels
     datasets: [
       {
         data: records.map((record) => record.amount), // Use record amounts as data
@@ -105,17 +105,20 @@ const BarChart = ({ records }: { records: Record[] }) => {
         displayColors: false,
         titleFont: {
           size: 14,
-          weight: '600' as const,
+          weight: 600,
         },
         bodyFont: {
           size: 13,
+          weight: 400,
         },
         padding: 12,
         callbacks: {
-          title: function(context: { [key: string]: unknown }) {
-            return `Sleep Record - ${context[0].label}`;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          title: function(tooltipItems: any[]) {
+            return `Sleep Record - ${tooltipItems[0].label}`;
           },
-          label: function(context: { parsed: { y: number } }) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          label: function(context: any) {
             const hours = context.parsed.y;
             let quality = '';
             if (hours < 6) quality = 'Poor';
@@ -134,14 +137,14 @@ const BarChart = ({ records }: { records: Record[] }) => {
           text: 'Date',
           font: {
             size: 14,
-            weight: '600' as const,
+            weight: 600,
           },
           color: '#475569',
         },
         ticks: {
           font: {
             size: 12,
-            weight: '500' as const,
+            weight: 500,
           },
           color: '#64748b',
           maxRotation: 45,
@@ -159,14 +162,14 @@ const BarChart = ({ records }: { records: Record[] }) => {
           text: 'Hours Slept',
           font: {
             size: 14,
-            weight: '600' as const,
+            weight: 600,
           },
           color: '#475569',
         },
         ticks: {
           font: {
             size: 12,
-            weight: '500' as const,
+            weight: 500,
           },
           color: '#64748b',
           stepSize: 1,
