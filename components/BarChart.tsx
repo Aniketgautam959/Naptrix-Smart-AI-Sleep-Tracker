@@ -112,7 +112,7 @@ const BarChart = ({ records }: { records: Record[] }) => {
         },
         padding: 12,
         callbacks: {
-          title: function(context: { [key: string]: any }) {
+          title: function(context: { [key: string]: unknown }) {
             return `Sleep Record - ${context[0].label}`;
           },
           label: function(context: { parsed: { y: number } }) {
