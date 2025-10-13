@@ -7,13 +7,13 @@ async function getRecords(): Promise<{
   records?: Record[];
   error?: string;
 }> {
-  const { userId } = await auth();
-
-  if (!userId) {
-    return { error: 'User not found' };
-  }
-
   try {
+    const { userId } = await auth();
+
+    if (!userId) {
+      return { error: 'User not found' };
+    }
+
     const records = await db.record.findMany({
       where: { userId },
       orderBy: {

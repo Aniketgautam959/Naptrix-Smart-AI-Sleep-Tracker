@@ -10,7 +10,15 @@ import { currentUser } from '@clerk/nextjs/server';
 import Image from 'next/image';
 
 export default async function HomePage() {
-  const user = await currentUser();
+  let user = null;
+  
+  try {
+    user = await currentUser();
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    // If there's an error with Clerk, show guest view
+    return <Guest />;
+  }
   
   if (!user) {
     return <Guest />;
