@@ -21,7 +21,7 @@ export default function EnvCheck() {
         ))}
       </div>
       <p className="text-xs text-yellow-700 mt-2">
-        If any variables show "Not Set", add them to your Vercel environment variables.
+        If any variables show &quot;Not Set&quot;, add them to your Vercel environment variables.
       </p>
     </div>
   );
