@@ -42,7 +42,7 @@ export async function getAIInsights(): Promise<{
 
     Sleep Records (last ${sleepData.length} entries):
     ${sleepData.map(record => 
-      `Date: ${new Date(record.date).toLocaleDateString()}, Hours: ${record.amount}, Notes: ${record.quality}`
+      `Date: ${new Date(record.date).toLocaleDateString()}, Hours: ${record.hours}, Notes: ${record.quality}`
     ).join('\n')}
 
     Statistics:
