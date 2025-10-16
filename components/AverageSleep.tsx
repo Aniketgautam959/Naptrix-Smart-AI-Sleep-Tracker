@@ -18,17 +18,12 @@ const AverageSleep = async () => {
     const minutes = Math.round((averageSleep - hours) * 60);
 
     return (
-      <div className='relative overflow-hidden bg-white backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 h-full min-h-[400px] flex flex-col justify-center group'>
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-indigo-50/30 to-purple-50/50"></div>
-        <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-100/40 to-indigo-100/40 rounded-full blur-2xl transform translate-x-6 -translate-y-6"></div>
-        <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-purple-100/40 to-pink-100/40 rounded-full blur-xl transform -translate-x-4 translate-y-4"></div>
-        
-        <div className="relative text-center">
+      <div className='bg-white border border-slate-200 rounded-2xl shadow-sm p-8 h-full min-h-[400px] flex flex-col justify-center'>
+        <div className="text-center">
           {/* Icon */}
-          <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <div className="w-16 h-16 mx-auto mb-6 bg-slate-100 rounded-2xl flex items-center justify-center">
             <svg
-              className="w-8 h-8 text-white"
+              className="w-8 h-8 text-slate-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -59,16 +54,12 @@ const AverageSleep = async () => {
   } catch (error) {
     console.error('Error fetching user record:', error);
     return (
-      <div className='relative overflow-hidden bg-white backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 h-full min-h-[400px] flex flex-col justify-center group'>
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-to-br from-red-50/50 via-orange-50/30 to-yellow-50/50"></div>
-        <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-red-100/40 to-orange-100/40 rounded-full blur-2xl transform translate-x-6 -translate-y-6"></div>
-        
-        <div className="relative text-center">
+      <div className='bg-white border border-slate-200 rounded-2xl shadow-sm p-8 h-full min-h-[400px] flex flex-col justify-center'>
+        <div className="text-center">
           {/* Error Icon */}
-          <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-red-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
+          <div className="w-16 h-16 mx-auto mb-6 bg-red-100 rounded-2xl flex items-center justify-center">
             <svg
-              className="w-8 h-8 text-white"
+              className="w-8 h-8 text-red-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

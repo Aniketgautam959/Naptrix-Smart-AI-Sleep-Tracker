@@ -34,17 +34,13 @@ export default function AIInsights({ className = '' }: AIInsightsProps) {
   }, []);
 
   return (
-    <div className={`relative overflow-hidden bg-white backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-6 h-full min-h-[400px] group ${className}`}>
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-pink-50/30 to-blue-50/50"></div>
-      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-100/40 to-pink-100/40 rounded-full blur-2xl transform translate-x-4 -translate-y-4"></div>
-      
+    <div className={`bg-white border border-slate-200 rounded-2xl shadow-sm p-6 h-full min-h-[400px] ${className}`}>
       <div className="relative">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
               <svg
-                className="w-6 h-6 text-white"
+                className="w-6 h-6 text-slate-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -68,7 +64,7 @@ export default function AIInsights({ className = '' }: AIInsightsProps) {
           <button
             onClick={fetchInsights}
             disabled={loading}
-            className="px-4 py-2 text-sm bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-xl hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+            className="px-4 py-2 text-sm bg-slate-800 hover:bg-slate-700 text-white rounded-xl disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 flex items-center gap-2"
           >
             {loading ? (
               <>
@@ -79,10 +75,7 @@ export default function AIInsights({ className = '' }: AIInsightsProps) {
                 <span>Analyzing...</span>
               </>
             ) : (
-              <>
-                <span>Refresh</span>
-                <span>✨</span>
-              </>
+              <span>Refresh</span>
             )}
           </button>
         </div>
@@ -91,14 +84,14 @@ export default function AIInsights({ className = '' }: AIInsightsProps) {
           {loading && (
             <div className="flex items-center justify-center py-8 flex-1">
               <div className="flex flex-col items-center gap-4">
-                <div className="w-8 h-8 border-3 border-purple-200 border-t-purple-600 rounded-full animate-spin"></div>
+                <div className="w-8 h-8 border-2 border-slate-200 border-t-slate-600 rounded-full animate-spin"></div>
                 <span className="text-sm text-slate-600 font-medium">Analyzing your sleep patterns...</span>
               </div>
             </div>
           )}
 
           {error && (
-            <div className="p-4 bg-gradient-to-r from-red-50 to-pink-50 border border-red-200 rounded-xl">
+            <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
                   <svg
@@ -134,9 +127,8 @@ export default function AIInsights({ className = '' }: AIInsightsProps) {
           )}
 
           {insights && !loading && (
-            <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-4 rounded-xl border border-blue-200 flex-1 flex flex-col">
+            <div className="bg-blue-50 p-4 rounded-xl border border-blue-200 flex-1 flex flex-col">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-2xl">💡</span>
                 <span className="text-sm font-semibold text-slate-700">Sleep Recommendations</span>
               </div>
               <div className="whitespace-pre-wrap text-slate-700 leading-relaxed text-sm overflow-y-auto flex-1 space-y-2">
@@ -159,9 +151,9 @@ export default function AIInsights({ className = '' }: AIInsightsProps) {
 
           {!insights && !loading && !error && (
             <div className="text-center py-8 flex-1 flex flex-col items-center justify-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-4 bg-slate-100 rounded-2xl flex items-center justify-center">
                 <svg
-                  className="w-8 h-8 text-purple-600"
+                  className="w-8 h-8 text-slate-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

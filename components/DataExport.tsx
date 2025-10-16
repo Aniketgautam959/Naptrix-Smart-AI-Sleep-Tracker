@@ -71,19 +71,19 @@ const DataExport = ({ records }: DataExportProps) => {
           <style>
             body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
             .header { text-align: center; margin-bottom: 30px; }
-            .header h1 { color: #2563eb; margin-bottom: 10px; }
+            .header h1 { color: #1e293b; margin-bottom: 10px; }
             .summary { background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
             .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
             .summary-item { text-align: center; }
-            .summary-value { font-size: 24px; font-weight: bold; color: #1e40af; }
+            .summary-value { font-size: 24px; font-weight: bold; color: #1e293b; }
             .summary-label { font-size: 14px; color: #64748b; margin-top: 5px; }
             table { width: 100%; border-collapse: collapse; margin-top: 20px; }
             th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
             th { background: #f1f5f9; font-weight: 600; color: #475569; }
-            .quality-excellent { color: #059669; font-weight: bold; }
-            .quality-good { color: #2563eb; font-weight: bold; }
-            .quality-fair { color: #d97706; font-weight: bold; }
-            .quality-poor { color: #dc2626; font-weight: bold; }
+            .quality-excellent { color: #1e293b; font-weight: bold; }
+            .quality-good { color: #1e293b; font-weight: bold; }
+            .quality-fair { color: #1e293b; font-weight: bold; }
+            .quality-poor { color: #1e293b; font-weight: bold; }
             .footer { margin-top: 40px; text-align: center; color: #64748b; font-size: 12px; }
           </style>
         </head>
@@ -181,32 +181,25 @@ const DataExport = ({ records }: DataExportProps) => {
 
   if (records.length === 0) {
     return (
-      <div className="relative overflow-hidden bg-white backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl p-8 text-center group">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-indigo-50/50"></div>
-        <div className="relative">
-          <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-slate-500 to-slate-600 rounded-2xl flex items-center justify-center shadow-lg">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </div>
-          <h3 className="text-xl font-bold text-slate-800 mb-2">No Data to Export</h3>
-          <p className="text-slate-600">Add sleep records to enable data export</p>
+      <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-8 text-center">
+        <div className="w-16 h-16 mx-auto mb-4 bg-slate-100 rounded-2xl flex items-center justify-center">
+          <svg className="w-8 h-8 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
         </div>
+        <h3 className="text-xl font-bold text-slate-800 mb-2">No Data to Export</h3>
+        <p className="text-slate-600">Add sleep records to enable data export</p>
       </div>
     );
   }
 
   return (
-    <div className="relative overflow-hidden bg-white backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl group">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-50/50 via-emerald-50/30 to-teal-50/50"></div>
-      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-green-100/40 to-emerald-100/40 rounded-full blur-2xl transform translate-x-6 -translate-y-6"></div>
-      
-      <div className="relative p-8">
+    <div className="bg-white border border-slate-200 rounded-2xl shadow-sm">
+      <div className="p-8">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-12 h-12 mx-auto mb-4 bg-slate-100 rounded-xl flex items-center justify-center border border-slate-200">
+            <svg className="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
           </div>
@@ -222,10 +215,10 @@ const DataExport = ({ records }: DataExportProps) => {
             <div className="grid grid-cols-2 gap-4">
               <button
                 onClick={() => setExportFormat('csv')}
-                className={`p-4 rounded-xl border-2 transition-all duration-300 ${
+                className={`p-4 rounded-xl border-2 transition-colors duration-200 ${
                   exportFormat === 'csv'
-                    ? 'border-green-500 bg-green-50 text-green-700'
-                    : 'border-slate-200 bg-white text-slate-600 hover:border-green-300'
+                    ? 'border-slate-300 bg-slate-50 text-slate-700'
+                    : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
                 }`}
               >
                 <div className="flex items-center space-x-3">
@@ -241,10 +234,10 @@ const DataExport = ({ records }: DataExportProps) => {
 
               <button
                 onClick={() => setExportFormat('pdf')}
-                className={`p-4 rounded-xl border-2 transition-all duration-300 ${
+                className={`p-4 rounded-xl border-2 transition-colors duration-200 ${
                   exportFormat === 'pdf'
-                    ? 'border-green-500 bg-green-50 text-green-700'
-                    : 'border-slate-200 bg-white text-slate-600 hover:border-green-300'
+                    ? 'border-slate-300 bg-slate-50 text-slate-700'
+                    : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
                 }`}
               >
                 <div className="flex items-center space-x-3">
@@ -293,10 +286,10 @@ const DataExport = ({ records }: DataExportProps) => {
           <button
             onClick={handleExport}
             disabled={isExporting}
-            className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 ${
+            className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-colors duration-200 ${
               isExporting
                 ? 'bg-slate-400 cursor-not-allowed'
-                : 'bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 shadow-lg hover:shadow-xl'
+                : 'bg-slate-600 hover:bg-slate-700'
             }`}
           >
             {isExporting ? (

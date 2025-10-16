@@ -125,7 +125,7 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
     switch (trend) {
       case 'improving':
         return (
-          <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
           </svg>
         );
@@ -146,8 +146,8 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
 
   const getTrendColor = (trend: string) => {
     switch (trend) {
-      case 'improving': return 'text-emerald-600 bg-emerald-50 border-emerald-200';
-      case 'declining': return 'text-red-600 bg-red-50 border-red-200';
+      case 'improving': return 'text-slate-600 bg-slate-50 border-slate-200';
+      case 'declining': return 'text-slate-600 bg-slate-50 border-slate-200';
       default: return 'text-slate-600 bg-slate-50 border-slate-200';
     }
   };
@@ -155,10 +155,10 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
   if (records.length === 0) {
     return (
       <div className="relative overflow-hidden bg-white backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl p-8 text-center group">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-indigo-50/50"></div>
+        <div className="absolute inset-0 bg-slate-50/50"></div>
         <div className="relative">
-          <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-slate-500 to-slate-600 rounded-2xl flex items-center justify-center shadow-lg">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-16 h-16 mx-auto mb-4 bg-slate-100 rounded-2xl flex items-center justify-center border border-slate-200">
+            <svg className="w-8 h-8 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
           </div>
@@ -172,15 +172,14 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
   return (
     <div className="relative overflow-hidden bg-white backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl group">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-indigo-50/30 to-purple-50/50"></div>
-      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-100/40 to-indigo-100/40 rounded-full blur-2xl transform translate-x-6 -translate-y-6"></div>
+      <div className="absolute inset-0 bg-slate-50/50"></div>
       
       <div className="relative p-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center border border-slate-200 group-hover:scale-110 transition-transform duration-300">
+              <svg className="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
@@ -217,12 +216,12 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
 
         {/* Trend Chart */}
         <div className="mb-8">
-          <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-6 border border-slate-200">
+          <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
             <div className="flex items-center justify-between mb-4">
               <h4 className="text-lg font-semibold text-slate-800">Sleep Hours Trend</h4>
-              <div className="flex items-center space-x-4 text-sm text-slate-600">
+                <div className="flex items-center space-x-4 text-sm text-slate-600">
                 <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                   <span>Improving</span>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -268,14 +267,14 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
                         {/* Bar */}
                         <div
                           className={`w-full rounded-t-lg transition-all duration-700 hover:scale-105 cursor-pointer relative ${
-                            data.trend === 'improving' ? 'bg-gradient-to-t from-emerald-500 to-emerald-400 shadow-emerald-200' :
-                            data.trend === 'declining' ? 'bg-gradient-to-t from-red-500 to-red-400 shadow-red-200' :
-                            'bg-gradient-to-t from-slate-500 to-slate-400 shadow-slate-200'
+                            data.trend === 'improving' ? 'bg-green-500 shadow-green-200' :
+                            data.trend === 'declining' ? 'bg-red-500 shadow-red-200' :
+                            'bg-slate-500 shadow-slate-200'
                           }`}
                           style={{ height: `${barHeight}px` }}
                         >
                           {/* Bar value on hover */}
-                          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-slate-800 text-slate-600 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                             {data.averageSleep.toFixed(1)}h
                           </div>
                           
@@ -316,50 +315,50 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
         {trendData.length > 0 && (
           <div className="mb-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-xl border border-blue-200">
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center border border-slate-200">
+                    <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                     </svg>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-blue-600">
+                    <div className="text-2xl font-bold text-slate-800">
                       {(trendData.reduce((sum, d) => sum + d.averageSleep, 0) / trendData.length).toFixed(1)}h
                     </div>
-                    <div className="text-sm text-blue-700">Overall Average</div>
+                    <div className="text-sm text-slate-600">Overall Average</div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-emerald-50 to-green-50 p-4 rounded-xl border border-emerald-200">
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center border border-slate-200">
+                    <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-emerald-600">
+                    <div className="text-2xl font-bold text-slate-800">
                       {trendData.filter(d => d.trend === 'improving').length}
                     </div>
-                    <div className="text-sm text-emerald-700">Improving Periods</div>
+                    <div className="text-sm text-slate-600">Improving Periods</div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-xl border border-purple-200">
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center border border-slate-200">
+                    <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-purple-600">
+                    <div className="text-2xl font-bold text-slate-800">
                       {Math.round(trendData.reduce((sum, d) => sum + d.qualityScore, 0) / trendData.length)}
                     </div>
-                    <div className="text-sm text-purple-700">Avg Quality Score</div>
+                    <div className="text-sm text-slate-600">Avg Quality Score</div>
                   </div>
                 </div>
               </div>
@@ -385,7 +384,7 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
               </div>
               <div className="text-right">
                 <div className={`text-sm font-medium ${
-                  data.trend === 'improving' ? 'text-emerald-600' :
+                  data.trend === 'improving' ? 'text-green-600' :
                   data.trend === 'declining' ? 'text-red-600' :
                   'text-slate-600'
                 }`}>

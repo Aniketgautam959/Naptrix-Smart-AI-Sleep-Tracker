@@ -14,9 +14,23 @@ const RecordChart = async () => {
 
   if (!records || records.length === 0) {
     return (
-      <div className='relative overflow-hidden bg-white backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 group'>
+      <div className='bg-white border border-slate-200 rounded-2xl shadow-sm p-8'>
         <div className='text-center py-12'>
-          <div className='text-6xl mb-4'>😴</div>
+          <div className='w-16 h-16 mx-auto mb-4 bg-slate-100 rounded-2xl flex items-center justify-center'>
+            <svg
+              className='w-8 h-8 text-slate-600'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4'
+              />
+            </svg>
+          </div>
           <h3 className='text-3xl font-bold text-slate-800 mb-4'>
             No Sleep Records Found
           </h3>
@@ -29,36 +43,30 @@ const RecordChart = async () => {
   }
 
   return (
-    <div className='relative overflow-hidden bg-white backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 group'>
-      {/* Background decoration */}
-      <div className='absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50'></div>
-      <div className='absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100/40 to-purple-100/40 rounded-full blur-3xl transform translate-x-8 -translate-y-8'></div>
+    <div className='bg-white border border-slate-200 rounded-2xl shadow-sm p-8'>
+      <div className='flex items-center justify-between mb-8'>
+        <div>
+          <h3 className='text-3xl font-bold text-slate-800'>
+            Sleep Records Chart
+          </h3>
+          <p className='text-slate-600 mt-2'>
+            Track your sleep patterns over time
+          </p>
+        </div>
+        <div className='flex items-center gap-2 text-sm text-slate-500'>
+          <div className='w-3 h-3 bg-red-400 rounded-full'></div>
+          <span>Poor</span>
+          <div className='w-3 h-3 bg-orange-400 rounded-full'></div>
+          <span>Fair</span>
+          <div className='w-3 h-3 bg-green-400 rounded-full'></div>
+          <span>Good</span>
+          <div className='w-3 h-3 bg-blue-400 rounded-full'></div>
+          <span>Excellent</span>
+        </div>
+      </div>
       
-      <div className='relative'>
-        <div className='flex items-center justify-between mb-8'>
-          <div>
-            <h3 className='text-3xl font-bold text-slate-800'>
-              Sleep Records Chart
-            </h3>
-            <p className='text-slate-600 mt-2'>
-              Track your sleep patterns over time
-            </p>
-          </div>
-          <div className='flex items-center gap-2 text-sm text-slate-500'>
-            <div className='w-3 h-3 bg-red-400 rounded-full'></div>
-            <span>Poor</span>
-            <div className='w-3 h-3 bg-orange-400 rounded-full'></div>
-            <span>Fair</span>
-            <div className='w-3 h-3 bg-green-400 rounded-full'></div>
-            <span>Good</span>
-            <div className='w-3 h-3 bg-blue-400 rounded-full'></div>
-            <span>Excellent</span>
-          </div>
-        </div>
-        
-        <div className='h-80'>
-          <BarChart records={records} />
-        </div>
+      <div className='h-80'>
+        <BarChart records={records} />
       </div>
     </div>
   );

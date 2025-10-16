@@ -34,20 +34,15 @@ const AddRecord = () => {
   };
 
   return (
-    <div className='relative overflow-hidden bg-white backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 group'>
-      {/* Background decoration */}
-      <div className='absolute inset-0 bg-gradient-to-br from-green-50/50 via-blue-50/30 to-purple-50/50'></div>
-      <div className='absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-green-100/40 to-blue-100/40 rounded-full blur-2xl transform translate-x-6 -translate-y-6'></div>
-      
-      <div className='relative'>
-        <div className='text-center mb-8'>
-          <h3 className='text-3xl font-bold text-slate-800 mb-2'>
-            Track Your Sleep
-          </h3>
-          <p className='text-slate-600'>
-            Log your sleep data and insights
-          </p>
-        </div>
+    <div className='bg-white border border-slate-200 rounded-2xl shadow-sm p-8'>
+      <div className='text-center mb-8'>
+        <h3 className='text-3xl font-bold text-slate-800 mb-2'>
+          Track Your Sleep
+        </h3>
+        <p className='text-slate-600'>
+          Log your sleep data and insights
+        </p>
+      </div>
       <form
         ref={formRef}
         onSubmit={(e) => {
@@ -78,11 +73,11 @@ const AddRecord = () => {
               <option value='' disabled>
                 Select quality...
               </option>
-              <option value='Refreshed'>🌞 Refreshed</option>
-              <option value='Tired'>😴 Tired</option>
-              <option value='Neutral'>😐 Neutral</option>
-              <option value='Exhausted'>😫 Exhausted</option>
-              <option value='Energetic'>⚡ Energetic</option>
+              <option value='Refreshed'>Refreshed</option>
+              <option value='Tired'>Tired</option>
+              <option value='Neutral'>Neutral</option>
+              <option value='Exhausted'>Exhausted</option>
+              <option value='Energetic'>Energetic</option>
             </select>
           </div>
 
@@ -126,7 +121,7 @@ const AddRecord = () => {
               step='0.5'
               value={amount}
               onChange={(e) => setAmount(parseFloat(e.target.value))}
-              className='w-full h-3 bg-gradient-to-r from-red-200 via-yellow-200 via-green-200 to-blue-200 rounded-lg appearance-none cursor-pointer slider'
+              className='w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer slider'
             />
             <div className='flex justify-between text-xs text-slate-500 mt-2'>
               <span>0h</span>
@@ -135,8 +130,7 @@ const AddRecord = () => {
             </div>
           </div>
           <div className='text-center'>
-            <div className='inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-semibold text-lg'>
-              <span className='text-2xl'>😴</span>
+            <div className='inline-flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-800 rounded-lg font-semibold text-lg'>
               <span>{amount} hours</span>
             </div>
           </div>
@@ -145,7 +139,7 @@ const AddRecord = () => {
         {/* Submit Button */}
         <button
           type='submit'
-          className='w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2'
+          className='w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-4 px-6 rounded-xl transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2'
           disabled={isLoading}
         >
           {isLoading ? (
@@ -173,10 +167,7 @@ const AddRecord = () => {
               <span>Adding...</span>
             </>
           ) : (
-            <>
-              <span>Add Sleep Record</span>
-              <span className='text-xl'>✨</span>
-            </>
+            <span>Add Sleep Record</span>
           )}
         </button>
       </form>
@@ -186,19 +177,15 @@ const AddRecord = () => {
         <div
           className={`mt-6 p-4 rounded-xl text-sm font-medium ${
             alertType === 'success'
-              ? 'bg-gradient-to-r from-green-50 to-emerald-50 text-green-800 border border-green-200 dark:from-green-900/20 dark:to-emerald-900/20 dark:text-green-300 dark:border-green-700'
-              : 'bg-gradient-to-r from-red-50 to-pink-50 text-red-800 border border-red-200 dark:from-red-900/20 dark:to-pink-900/20 dark:text-red-300 dark:border-red-700'
+              ? 'bg-green-50 text-green-800 border border-green-200'
+              : 'bg-red-50 text-red-800 border border-red-200'
           }`}
         >
           <div className='flex items-center gap-2'>
-            <span className='text-lg'>
-              {alertType === 'success' ? '✅' : '❌'}
-            </span>
             {alertMessage}
           </div>
         </div>
       )}
-      </div>
     </div>
   );
 };

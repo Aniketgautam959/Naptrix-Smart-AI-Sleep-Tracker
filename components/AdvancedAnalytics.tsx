@@ -33,35 +33,29 @@ const AdvancedAnalytics = () => {
 
   if (loading) {
     return (
-      <div className="relative overflow-hidden bg-white backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl p-8 text-center group">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-indigo-50/50"></div>
-        <div className="relative">
-          <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
-            <svg className="animate-spin w-8 h-8 text-white" fill="none" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
-            </svg>
-          </div>
-          <h3 className="text-xl font-bold text-slate-800 mb-2">Loading Analytics</h3>
-          <p className="text-slate-600">Preparing your sleep data analysis...</p>
+      <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-8 text-center">
+        <div className="w-16 h-16 mx-auto mb-4 bg-slate-100 rounded-2xl flex items-center justify-center">
+          <svg className="animate-spin w-8 h-8 text-slate-600" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+          </svg>
         </div>
+        <h3 className="text-xl font-bold text-slate-800 mb-2">Loading Analytics</h3>
+        <p className="text-slate-600">Preparing your sleep data analysis...</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="relative overflow-hidden bg-white backdrop-blur-xl border border-red-200 rounded-3xl shadow-xl p-8 text-center group">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-50/50 via-orange-50/30 to-yellow-50/50"></div>
-        <div className="relative">
-          <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-red-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <h3 className="text-xl font-bold text-red-800 mb-2">Error Loading Data</h3>
-          <p className="text-red-600">{error}</p>
+      <div className="bg-white border border-red-200 rounded-2xl shadow-sm p-8 text-center">
+        <div className="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-2xl flex items-center justify-center">
+          <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
         </div>
+        <h3 className="text-xl font-bold text-red-800 mb-2">Error Loading Data</h3>
+        <p className="text-red-600">{error}</p>
       </div>
     );
   }
