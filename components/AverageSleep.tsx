@@ -23,17 +23,11 @@ const AverageSleep = async () => {
           {/* Icon */}
           <div className="w-16 h-16 mx-auto mb-6 bg-slate-100 rounded-2xl flex items-center justify-center border border-slate-200">
             <svg
-              className="w-8 h-8 text-slate-600"
-              fill="none"
-              stroke="currentColor"
+              className="w-8 h-8 text-slate-800"
+              fill="currentColor"
               viewBox="0 0 24 24"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
             </svg>
           </div>
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Average Sleep</h3>
@@ -52,17 +46,11 @@ const AverageSleep = async () => {
           {/* Error Icon */}
           <div className="w-16 h-16 mx-auto mb-6 bg-slate-100 rounded-2xl flex items-center justify-center border border-slate-200">
             <svg
-              className="w-8 h-8 text-slate-600"
-              fill="none"
-              stroke="currentColor"
+              className="w-8 h-8 text-slate-800"
+              fill="currentColor"
               viewBox="0 0 24 24"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
             </svg>
           </div>
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Average Sleep</h3>

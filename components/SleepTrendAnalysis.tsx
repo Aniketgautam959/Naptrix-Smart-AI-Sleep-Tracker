@@ -125,20 +125,20 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
     switch (trend) {
       case 'improving':
         return (
-          <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
+          <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M7 14l5-5 5 5z"/>
           </svg>
         );
       case 'declining':
         return (
-          <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 13l-5 5m0 0l-5-5m5 5V6" />
+          <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17 10l-5 5-5-5z"/>
           </svg>
         );
       default:
         return (
-          <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+          <svg className="w-5 h-5 text-slate-800" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4 12h16v2H4z"/>
           </svg>
         );
     }
@@ -158,8 +158,8 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
         <div className="absolute inset-0 bg-slate-50/50"></div>
         <div className="relative">
           <div className="w-16 h-16 mx-auto mb-4 bg-slate-100 rounded-2xl flex items-center justify-center border border-slate-200">
-            <svg className="w-8 h-8 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            <svg className="w-8 h-8 text-slate-800" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
             </svg>
           </div>
           <h3 className="text-xl font-bold text-slate-800 mb-2">No Data for Analysis</h3>
@@ -179,8 +179,8 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center border border-slate-200 group-hover:scale-110 transition-transform duration-300">
-              <svg className="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              <svg className="w-6 h-6 text-slate-800" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
               </svg>
             </div>
             <div>
@@ -318,8 +318,8 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center border border-slate-200">
-                    <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    <svg className="w-5 h-5 text-slate-800" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
                     </svg>
                   </div>
                   <div>
@@ -334,8 +334,8 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center border border-slate-200">
-                    <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    <svg className="w-5 h-5 text-slate-800" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
                     </svg>
                   </div>
                   <div>
@@ -350,8 +350,8 @@ const SleepTrendAnalysis = ({ records }: SleepTrendAnalysisProps) => {
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center border border-slate-200">
-                    <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <svg className="w-5 h-5 text-slate-800" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                     </svg>
                   </div>
                   <div>
