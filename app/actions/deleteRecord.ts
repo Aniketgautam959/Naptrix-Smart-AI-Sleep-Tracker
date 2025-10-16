@@ -1,15 +1,15 @@
 'use server';
 import { db } from '@/lib/db';
-import { auth } from '@clerk/nextjs/server';
+import { checkUser } from '@/lib/checkUser';
 import { revalidatePath } from 'next/cache';
 
 async function deleteRecord(recordId: string): Promise<{
   message?: string;
   error?: string;
 }> {
-  const { userId } = await auth();
+  const user = await checkUser();
 
-  if (!userId) {
+  if (!user) {
     return { error: 'User not found' };
   }
 
@@ -17,7 +17,7 @@ async function deleteRecord(recordId: string): Promise<{
     await db.record.delete({
       where: {
         id: recordId,
-        userId,
+        userId: user.clerkUserId,
       },
     });
 

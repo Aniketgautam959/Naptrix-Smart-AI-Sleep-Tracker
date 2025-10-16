@@ -1,21 +1,21 @@
 'use server';
 import { db } from '@/lib/db';
-import { auth } from '@clerk/nextjs/server';
+import { checkUser } from '@/lib/checkUser';
 
 async function getUserRecord(): Promise<{
   record?: number;
   daysWithRecords?: number;
   error?: string;
 }> {
-  const { userId } = await auth();
+  const user = await checkUser();
 
-  if (!userId) {
+  if (!user) {
     return { error: 'User not found' };
   }
 
   try {
     const records = await db.record.findMany({
-      where: { userId },
+      where: { userId: user.clerkUserId },
     });
 
     const record = records.reduce((sum, record) => sum + record.amount, 0);

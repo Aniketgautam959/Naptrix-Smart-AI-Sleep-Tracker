@@ -1,17 +1,9 @@
 import { SignInButton } from '@clerk/nextjs';
 import Image from 'next/image';
-import EnvCheck from './EnvCheck';
 
 const Guest = () => {
   return (
     <div className='min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50'>
-      {/* Environment Check - Only show in development */}
-      {process.env.NODE_ENV === 'development' && (
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8'>
-          <EnvCheck />
-        </div>
-      )}
-
       {/* Hero Section */}
       <section className='pt-24 pb-16'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
