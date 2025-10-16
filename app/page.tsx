@@ -26,6 +26,7 @@ export default async function HomePage() {
   if (!user) {
     return <Guest />;
   }
+  
   return (
     <main className='bg-slate-50'>
       <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8'>
@@ -42,7 +43,7 @@ export default async function HomePage() {
                   height={96}
                   className='w-24 h-24 rounded-full border-2 border-slate-200 shadow-sm'
                 />
-                <div className='absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white shadow-sm flex items-center justify-center'>
+                <div className='absolute -bottom-2 -right-2 w-6 h-6 bg-slate-500 rounded-full border-2 border-white shadow-sm flex items-center justify-center'>
                   <div className='w-2 h-2 bg-white rounded-full'></div>
                 </div>
               </div>
@@ -66,7 +67,7 @@ export default async function HomePage() {
                     })}</span>
                   </div>
                   <div className='flex items-center gap-3'>
-                    <div className='w-2 h-2 bg-green-500 rounded-full'></div>
+                    <div className='w-2 h-2 bg-slate-500 rounded-full'></div>
                     <span className='text-slate-500 font-medium'>
                       Last active {user.lastActiveAt
                         ? new Date(user.lastActiveAt).toLocaleDateString('en-US', {

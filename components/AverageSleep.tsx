@@ -21,7 +21,7 @@ const AverageSleep = async () => {
       <div className='bg-white border border-slate-200 rounded-2xl shadow-sm p-8 h-full min-h-[400px] flex flex-col justify-center'>
         <div className="text-center">
           {/* Icon */}
-          <div className="w-16 h-16 mx-auto mb-6 bg-slate-100 rounded-2xl flex items-center justify-center">
+          <div className="w-16 h-16 mx-auto mb-6 bg-slate-100 rounded-2xl flex items-center justify-center border border-slate-200">
             <svg
               className="w-8 h-8 text-slate-600"
               fill="none"
@@ -36,18 +36,11 @@ const AverageSleep = async () => {
               />
             </svg>
           </div>
-          
-          <h4 className='text-lg font-semibold text-slate-600 mb-4'>
-            Your Average Sleep Last Month
-          </h4>
-          <div className="space-y-2">
-            <h1 className='text-4xl font-bold text-slate-800'>
-              {hours}h {minutes}m
-            </h1>
-            <p className="text-sm text-slate-500 font-medium">
-              Based on {validDays} day{validDays !== 1 ? 's' : ''} of data
-            </p>
-          </div>
+          <h3 className="text-2xl font-bold text-slate-800 mb-2">Average Sleep</h3>
+          <p className="text-4xl font-bold text-slate-800 mb-2">{hours}h {minutes}m</p>
+          <p className="text-slate-600">
+            Based on {validDays} day{validDays !== 1 ? 's' : ''} of data
+          </p>
         </div>
       </div>
     );
@@ -57,9 +50,9 @@ const AverageSleep = async () => {
       <div className='bg-white border border-slate-200 rounded-2xl shadow-sm p-8 h-full min-h-[400px] flex flex-col justify-center'>
         <div className="text-center">
           {/* Error Icon */}
-          <div className="w-16 h-16 mx-auto mb-6 bg-red-100 rounded-2xl flex items-center justify-center">
+          <div className="w-16 h-16 mx-auto mb-6 bg-slate-100 rounded-2xl flex items-center justify-center border border-slate-200">
             <svg
-              className="w-8 h-8 text-red-600"
+              className="w-8 h-8 text-slate-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -72,9 +65,9 @@ const AverageSleep = async () => {
               />
             </svg>
           </div>
-          
-          <h4 className='text-lg font-semibold text-slate-600 mb-4'>Error</h4>
-          <p className='text-red-600 font-medium'>Unable to calculate average sleep.</p>
+          <h3 className="text-2xl font-bold text-slate-800 mb-2">Average Sleep</h3>
+          <p className="text-4xl font-bold text-slate-800 mb-2">--</p>
+          <p className="text-slate-600">Unable to calculate</p>
         </div>
       </div>
     );

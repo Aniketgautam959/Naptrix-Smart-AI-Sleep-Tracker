@@ -16,7 +16,7 @@ const RecordChart = async () => {
     return (
       <div className='bg-white border border-slate-200 rounded-2xl shadow-sm p-8'>
         <div className='text-center py-12'>
-          <div className='w-16 h-16 mx-auto mb-4 bg-slate-100 rounded-2xl flex items-center justify-center'>
+          <div className='w-16 h-16 mx-auto mb-4 bg-slate-100 rounded-2xl flex items-center justify-center border border-slate-200'>
             <svg
               className='w-8 h-8 text-slate-600'
               fill='none'
@@ -54,13 +54,13 @@ const RecordChart = async () => {
           </p>
         </div>
         <div className='flex items-center gap-2 text-sm text-slate-500'>
-          <div className='w-3 h-3 bg-red-400 rounded-full'></div>
+          <div className='w-3 h-3 bg-slate-400 rounded-full'></div>
           <span>Poor</span>
-          <div className='w-3 h-3 bg-orange-400 rounded-full'></div>
+          <div className='w-3 h-3 bg-slate-400 rounded-full'></div>
           <span>Fair</span>
-          <div className='w-3 h-3 bg-green-400 rounded-full'></div>
+          <div className='w-3 h-3 bg-slate-400 rounded-full'></div>
           <span>Good</span>
-          <div className='w-3 h-3 bg-blue-400 rounded-full'></div>
+          <div className='w-3 h-3 bg-slate-400 rounded-full'></div>
           <span>Excellent</span>
         </div>
       </div>
